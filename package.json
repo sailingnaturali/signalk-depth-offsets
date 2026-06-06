@@ -1,0 +1,34 @@
+{
+  "name": "@sailingnaturali/signalk-depth-offsets",
+  "version": "0.1.0",
+  "description": "Derive environment.depth.belowKeel and belowSurface from belowTransducer using measured transducer offsets. For DBT-only feeds that carry no offset field.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "signalk-node-server-plugin",
+    "signalk-category-utility",
+    "depth",
+    "marine"
+  ],
+  "author": "Bryan Clark",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sailingnaturali/signalk-depth-offsets.git"
+  },
+  "homepage": "https://github.com/sailingnaturali/signalk-depth-offsets#readme",
+  "bugs": {
+    "url": "https://github.com/sailingnaturali/signalk-depth-offsets/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
