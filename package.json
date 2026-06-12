@@ -22,8 +22,15 @@
   "bugs": {
     "url": "https://github.com/sailingnaturali/signalk-depth-offsets/issues"
   },
+  "signalk": {
+    "displayName": "Depth Offsets",
+    "screenshots": [
+      "./docs/screenshots/data-table.png"
+    ]
+  },
   "files": [
-    "index.js"
+    "index.js",
+    "docs/screenshots/"
   ],
   "publishConfig": {
     "access": "public"
