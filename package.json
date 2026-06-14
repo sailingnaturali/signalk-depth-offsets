@@ -1,6 +1,6 @@
 {
   "name": "@sailingnaturali/signalk-depth-offsets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Derive environment.depth.belowKeel and belowSurface from belowTransducer using measured transducer offsets. For DBT-only feeds that carry no offset field.",
   "main": "index.js",
   "scripts": {
