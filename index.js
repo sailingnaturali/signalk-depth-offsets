@@ -17,7 +17,7 @@
  * The profile is the single source of truth; this plugin carries no offset
  * values of its own — it just reads them back off the data model.
  */
-module.exports = function (app) {
+export default function (app) {
   const plugin = {
     id: 'signalk-depth-offsets',
     name: 'Depth offsets (belowKeel / belowSurface)',
@@ -97,4 +97,4 @@ module.exports = function (app) {
   };
 
   return plugin;
-};
+}

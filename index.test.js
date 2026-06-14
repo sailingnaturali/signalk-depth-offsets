@@ -1,6 +1,6 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const createPlugin = require('./index.js');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import createPlugin from './index.js';
 
 const T2K = 'environment.depth.transducerToKeel';
 const S2T = 'environment.depth.surfaceToTransducer';

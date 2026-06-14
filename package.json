@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "Derive environment.depth.belowKeel and belowSurface from belowTransducer using measured transducer offsets. For DBT-only feeds that carry no offset field.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "node --test"
   },
