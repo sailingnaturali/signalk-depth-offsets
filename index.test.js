@@ -46,3 +46,19 @@ test('publishes nothing when both offsets are absent', () => {
 test('ignores non-number belowTransducer values', () => {
   assert.deepEqual(derive({ [T2K]: -0.5 }, null), {});
 });
+
+for (const transducerToKeel of [1, -1]) {
+  test(`derives clearance with a ${transducerToKeel} metre keel offset`, () => {
+    const out = derive({ [T2K]: transducerToKeel, [S2T]: 0.7 }, 13.08);
+    assert.equal(out['environment.depth.belowKeel'], 12.08);
+    assert.equal(out['environment.depth.belowSurface'], 13.78);
+  });
+}
+
+test('preserves negative clearance when the keel offset exceeds depth', () => {
+  assert.equal(derive({ [T2K]: 1 }, 0.5)['environment.depth.belowKeel'], -0.5);
+});
+
+test('derives clearance with a zero keel offset', () => {
+  assert.equal(derive({ [T2K]: 0 }, 13.08)['environment.depth.belowKeel'], 13.08);
+});

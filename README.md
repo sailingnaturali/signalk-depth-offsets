@@ -11,13 +11,16 @@ Zero runtime dependencies.
 
 A `DBT`-only sounder maps to `environment.depth.belowTransducer` in Signal K, but
 the keel/surface-referenced depths you actually navigate by (under-keel clearance)
-are never produced. This plugin derives them, using the canonical Signal K
-convention:
+are never produced. This plugin derives them from the measured offsets:
 
 ```
-belowKeel    = belowTransducer + transducerToKeel    (transducerToKeel < 0)
+belowKeel    = belowTransducer - abs(transducerToKeel)
 belowSurface = belowTransducer + surfaceToTransducer  (surfaceToTransducer > 0)
 ```
+
+`transducerToKeel` is treated as a distance: both positive values and legacy
+negative offsets yield the same clearance. This follows the transition guidance
+in [Signal K's depth-offset proposal](https://github.com/SignalK/specification/issues/688).
 
 The offsets come from the data model itself —
 `environment.depth.transducerToKeel` and `environment.depth.surfaceToTransducer`

@@ -6,10 +6,9 @@
  * keel/surface-referenced depths the agents actually reason about
  * (under-keel clearance) are never produced.
  *
- * This plugin derives them from the transducer offsets, using the canonical
- * SignalK convention:
- *   belowKeel    = belowTransducer + transducerToKeel   (transducerToKeel < 0)
- *   belowSurface = belowTransducer + surfaceToTransducer (surfaceToTransducer > 0)
+ * This plugin derives them from the transducer offsets:
+ *   belowKeel    = belowTransducer - abs(transducerToKeel)
+ *   belowSurface = belowTransducer + surfaceToTransducer
  *
  * The offsets themselves (environment.depth.transducerToKeel /
  * surfaceToTransducer) come from baseDeltas.json, which the vessel_config
@@ -72,7 +71,8 @@ export default function (app) {
               if (transducerToKeel !== undefined) {
                 values.push({
                   path: 'environment.depth.belowKeel',
-                  value: v.value + transducerToKeel,
+                  // Accept either keel-offset sign: https://github.com/SignalK/specification/issues/688.
+                  value: v.value - Math.abs(transducerToKeel),
                 });
               }
               if (surfaceToTransducer !== undefined) {
